@@ -4,7 +4,12 @@ module.exports = {
       "./src/**/*.{js,jsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        orbitron: ['Orbitron', 'sans-serif'],
+        robotoMono: ['Roboto Mono', 'monospace'],
+      },
+    },
   },
   plugins: [],
 }
