@@ -1,7 +1,11 @@
 import {useEffect, useState} from "react";
 
-const Header = () => {
+const Header = ({scrollToRef}) => {
     const[isscrolled, setIsscrolled] = useState(false);
+
+    const scrollToSection=(ref)=>{
+        ref.current?.scrollIntoView({behavior: "smooth"});
+    }
     useEffect(() => {
         const handleScroll = () => {
             if(window.scrollY>100) {
@@ -27,9 +31,12 @@ const Header = () => {
             </div>
             <div className="mr-12">
                 <ul className='flex items-center justify-center font-orbitron font-medium text-lg'>
-                    <li className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">Home</li>
-                    <li className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">About</li>
-                    <li className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">Projects</li>
+                    <li onClick={()=>scrollToSection(scrollToRef.heroRef)}
+                        className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">Home</li>
+                    <li onClick={()=>scrollToSection(scrollToRef.aboutRef)}
+                        className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">About</li>
+                    <li onClick={()=>scrollToSection(scrollToRef.projectsRef)}
+                        className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">Projects</li>
                     <li className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">Contact</li>
                 </ul>
             </div>
