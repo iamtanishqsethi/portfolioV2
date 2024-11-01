@@ -1,7 +1,7 @@
 const ProjectsB=({data})=>{
     return(
-        <div className="relative p-4 m-4">
-            <div className={`bg-black absolute  w-1/2 ${data.id%2===0?"right-1/2 top-1/3 text-left":"left-1/2 top-1/3 text-right"}  py-8 px-6 rounded-xl bg-opacity-80`}>
+        <div className="relative p-4 m-4 ">
+            <div className={`   transition ease-in-out bg-black absolute  w-1/2 ${data.id%2===0?"right-1/2 top-1/3 text-left hover:translate-y-2 hover:translate-x-2":"left-1/2 top-1/3 text-right hover:-translate-y-2 hover:-translate-x-2"}  py-8 px-6 rounded-xl bg-opacity-80`}>
                 <h1
                     className=" p-2 text-3xl font-orbitron font-bold  bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">
                     {data.name}</h1>

@@ -41,7 +41,10 @@ const Hero = () => {
                     className=" inline font-bold font-orbitron bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">
                     {currentWord}</h3>
                 </h2>
-                <button className="px-5 py-3 m-3 text-amber-400 rounded-full border-2 border-amber-400 transition ease-in-out hover:-translate-x-1 hover:-translate-y-1 hover:bg-amber-500 hover:text-white hover:border-amber-300 hover:border-b-8 hover:border-t-0 hover:border-l-0 hover:border-r-8">Get in Touch</button>
+                <a href="https://docs.google.com/document/d/10M3aMD443VUMO3qyScs54o6BDZ3Kp5y4/edit?usp=sharing&ouid=104947448407113642183&rtpof=true&sd=true">
+                <button className="px-5 py-3 m-3 text-amber-400 rounded-full border-2 border-amber-400 transition ease-in-out hover:-translate-x-1 hover:-translate-y-1 ">
+                    Download Resume
+                </button></a>
                 <div className="flex items-center  text-gray-400 ">
                     <a href="https://github.com/iamtanishqsethi" className="text-2xl p-2 transition ease-in-out hover:text-amber-400 hover:scale-125"><i
                         className="fab fa-github"></i></a>

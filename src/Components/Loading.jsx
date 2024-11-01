@@ -6,9 +6,9 @@ const Loading=()=>{
                     className="bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">05</span>
                 </h1>
                 <div className=" animate-bounce my-6 flex items-center justify-center">
-                    <div className="  m-2 h-4  w-4 rounded-full bg-gradient-to-r from-gray-100 to-yellow-400"></div>
-                    <div className="  m-2 h-4 w-4 rounded-full bg-gradient-to-r from-gray-100 to-yellow-400"></div>
-                    <div className="  m-2  h-4 w-4 rounded-full bg-gradient-to-r from-gray-100 to-yellow-400"></div>
+                    <div className="  m-2 h-4  w-4 rounded-full bg-gradient-to-r from-yellow-300 to-amber-500"></div>
+                    <div className="  m-2 h-4 w-4 rounded-full bg-gradient-to-r from-yellow-300 to-amber-500"></div>
+                    <div className="  m-2  h-4 w-4 rounded-full bg-gradient-to-r from-yellow-300 to-amber-500"></div>
                 </div>
 
             </div>

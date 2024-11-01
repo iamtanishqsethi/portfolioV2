@@ -37,7 +37,8 @@ const Header = ({scrollToRef}) => {
                         className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">About</li>
                     <li onClick={()=>scrollToSection(scrollToRef.projectsRef)}
                         className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">Projects</li>
-                    <li className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">Contact</li>
+                    <li onClick={()=>scrollToSection(scrollToRef.contactRef)}
+                        className="mr-3.5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400">Contact</li>
                 </ul>
             </div>
         </div>
