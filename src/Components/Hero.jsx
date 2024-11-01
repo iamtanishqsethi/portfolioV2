@@ -1,4 +1,31 @@
+import {useEffect, useState} from "react";
+
 const Hero = () => {
+
+    const proffArr=["2nd Year B.Tech Student", "Front-End Developer", "Tech Enthusiast"]
+    const [currentWord, setCurrentWord] = useState("")
+    useEffect(() => {
+        let arrIndex=0;
+        let charIndex=0
+        const writeText=()=>{
+            const current=proffArr[arrIndex];
+            const word=current.slice(0,charIndex)
+            setCurrentWord(word)
+            charIndex++;
+            if(charIndex>current.length){
+                charIndex=0;
+                arrIndex=(arrIndex+1)%proffArr.length
+                setTimeout(writeText,250)
+
+            }
+            else{
+                setTimeout(writeText,150)
+            }
+        }
+        writeText()
+        return () => clearTimeout();
+
+    }, []);
     return (
         <div className="flex items-center justify-between h-screen w-screen text-white px-32 pt-20">
             <div>
@@ -11,8 +38,8 @@ const Hero = () => {
                 </h1>
                 <h2 className="text-3xl font-semibold">
                     I am a <h3
-                    className=" inline font-bold font-orbitron bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">Front-end
-                    Developer</h3>
+                    className=" inline font-bold font-orbitron bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">
+                    {currentWord}</h3>
                 </h2>
                 <button className="px-5 py-3 m-3 text-amber-400 rounded-full border-2 border-amber-400 transition ease-in-out hover:-translate-x-1 hover:-translate-y-1 hover:bg-amber-500 hover:text-white hover:border-amber-300 hover:border-b-8 hover:border-t-0 hover:border-l-0 hover:border-r-8">Get in Touch</button>
                 <div className="flex items-center  text-gray-400 ">

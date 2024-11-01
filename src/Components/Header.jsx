@@ -23,7 +23,7 @@ const Header = ({scrollToRef}) => {
     }, []);
     return(
         <div
-            className={`text-white w-full  px-14 fixed flex items-center justify-between transition-all duration-300 ${isscrolled ? "bg-black bg-opacity-65 backdrop-blur py-3 " : "bg-transparent py-7"}`}>
+            className={`text-white w-full  px-14 fixed flex items-center justify-between transition-all duration-300 ${isscrolled ? "bg-black bg-opacity-65 backdrop-blur py-3 " : "bg-transparent py-7"} z-10`}>
             <div className="ml-8">
                 <a href="Loading.jsx"><h1 className={`font-orbitron font-extrabold ${isscrolled?"text-2xl":"text-3xl"}`}>TS<span
                     className="bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">05</span>
