@@ -17,6 +17,15 @@
       "link": "https://bite-hub.vercel.app/",
       "gitHub": "https://github.com/iamtanishqsethi/BiteHub",
       "tags": ["React","Redux","TailWind","Shimmer UI"]
+    },
+    {
+      "id":3,
+      "name": "Not-YouTube",
+      "img":"https://i.ibb.co/phHj11d/image.png"  ,
+      "desc": "Not-Youtube is a clone of the YouTube website build with fully functional search bar to search and play videos",
+      "link": "https://not-my-youtube.vercel.app/",
+      "gitHub": "https://github.com/iamtanishqsethi/Not-Youtube",
+      "tags": ["React","Redux","TailWind"]
     }
   ],
   "SmallProjects": [

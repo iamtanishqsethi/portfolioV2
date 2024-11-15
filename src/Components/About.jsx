@@ -1,5 +1,11 @@
+import {useEffect, useState} from "react";
+
 const About=()=>{
-    return <div className="text-white px-32 mb-12">
+    const [isVisible,setIsVisible]=useState(false);
+    useEffect(() => {
+        setIsVisible(true)
+    }, []);
+    return <div className={` transition-opacity duration-500 ${isVisible? 'opacity-100 fade-in ':'opacity-0'} text-white px-32 mb-12`}>
         <div className="my-4 bg-black bg-opacity-70 grid grid-cols-12  p-8">
             <div className="col-span-5 p-6 relative group">
 
