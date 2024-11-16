@@ -5,18 +5,18 @@ const About=()=>{
     useEffect(() => {
         setIsVisible(true)
     }, []);
-    return <div className={` transition-opacity duration-500 ${isVisible? 'opacity-100 fade-in ':'opacity-0'} text-white px-32 mb-12`}>
-        <div className="my-4 bg-black bg-opacity-70 grid grid-cols-12  p-8">
+    return <div className={` transition-opacity duration-500 ${isVisible? 'opacity-100 fade-in ':'opacity-0'} text-white px-6 md:px-32 mb-12`}>
+        <div className="my-4 bg-black bg-opacity-70 grid grid-cols-1 lg:grid-cols-12  p-8">
             <div className="col-span-5 p-6 relative group">
 
-                <div className="absolute top-3 left-3 w-80 h-4/5 border-4 border-amber-500  bg-amber-500 rounded-xl transition-transform ease-in-out group-hover:-translate-x-2 group-hover:-translate-y-2 "></div>
+                <div className="absolute top-6 md:top-3 left-6 md:left-3 w-60 md:w-80 h-4/5 border-4 border-amber-500  bg-amber-500 rounded-xl transition-transform ease-in-out group-hover:-translate-x-2 group-hover:-translate-y-2 "></div>
                 <img src="https://i.ibb.co/0C10yfv/img.png" alt="img"
                      className="relative w-80  rounded-xl transition-transform ease-in-out group-hover:translate-x-2 group-hover:translate-y-2   "/>
             </div>
 
             <div className="col-span-6 m-2">
-               <h1 className="text-4xl font-orbitron font-bold text-right bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">About Me...</h1>
-                <p className="text-right p-2">
+               <h1 className="text-4xl font-orbitron font-bold text-center md:text-right bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">About Me...</h1>
+                <p className="text-center md:text-right p-2">
                     Hi, I'm Tanishq Sethi, an 18-year-old web developer currently pursuing a B.Tech degree at Maharaja
                     Agrasen Institute of Technology, New Delhi.
                     <br></br>
