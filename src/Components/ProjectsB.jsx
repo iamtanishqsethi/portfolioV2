@@ -1,6 +1,6 @@
 const ProjectsB=({data})=>{
     return(
-        <div className="relative p-4 m-4 md:mb-36 lg:mb-0">
+        <div className="relative p-4 m-8 md:mb-40 lg:mb-0">
             <div className={`   transition ease-in-out bg-black md:absolute  my-2 md:my-0 w-full md:w-1/2  ${data.id%2===0?"md:right-1/2 md:top-1/3 text-center md:text-left md:hover:translate-y-2 md:hover:translate-x-2":"md:left-1/2 md:top-1/3 text-center md:text-right md:hover:-translate-y-2 md:hover:-translate-x-2"}  py-8 px-6 rounded-xl bg-opacity-80`}>
                 <h1
                     className=" p-2 text-3xl font-orbitron font-bold  bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 text-transparent bg-clip-text">

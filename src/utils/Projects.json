@@ -26,6 +26,15 @@
       "link": "https://not-my-youtube.vercel.app/",
       "gitHub": "https://github.com/iamtanishqsethi/Not-Youtube",
       "tags": ["React","Redux","TailWind"]
+    },
+    {
+      "id":4,
+      "name": "Organize It",
+      "img":"https://i.ibb.co/61v3sK3/image.png"  ,
+      "desc": "Organize It is a minimal ReactJS based note taking app build on top of a public api for fetching and storing notes enhanced with a rich text editor for customizable notes ",
+      "link": "https://organize-it-alpha.vercel.app/",
+      "gitHub": "https://github.com/iamtanishqsethi/Organize-It",
+      "tags": ["React","Redux","TailWind","Rich Text editor"]
     }
   ],
   "SmallProjects": [
