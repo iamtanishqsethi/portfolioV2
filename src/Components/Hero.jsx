@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import {useScrollAnimation} from "../utils/useScrollAnimation";
 
 const Hero = () => {
     const proffArr = ["2nd Year B.Tech Student", "Front-End Developer", "Tech Enthusiast"];
     const [currentWord, setCurrentWord] = useState("");
-    const [isVisible, setIsVisible] = useState(false);
-
+    // const [isVisible, setIsVisible] = useState(false);
+    const [ref,isVisible]=useScrollAnimation()
     useEffect(() => {
         let arrIndex = 0;
         let charIndex = 0;
@@ -22,15 +23,16 @@ const Hero = () => {
         }
     };
     writeText();
-    setIsVisible(true);
+
     return () => clearTimeout();
     }, []);
 
     return (
     <div
-        className={`transition-opacity duration-500 ${
-        isVisible ? "opacity-100" : "opacity-0"
-        } flex flex-col md:flex-row items-center justify-center md:justify-between h-screen w-full text-white px-6 md:px-16 lg:px-24 pt-20`}
+        className={`transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        } flex flex-col md:flex-row items-center justify-center md:justify-between min-h-screen w-full text-white px-6 md:px-16 lg:px-24 pt-20`}
+        ref={ref}
     >
     
         <div className="text-center md:text-left space-y-4 md:space-y-6 max-w-lg">
@@ -48,7 +50,7 @@ const Hero = () => {
             href="https://docs.google.com/document/d/10M3aMD443VUMO3qyScs54o6BDZ3Kp5y4/edit?usp=sharing&ouid=104947448407113642183&rtpof=true&sd=true"
             target="_blank"
             >
-            <button className="px-4 py-2 md:px-5 md:py-3 text-sm md:text-base text-amber-400 rounded-full border-2 border-amber-400 transition-transform duration-300 hover:-translate-y-1 hover:scale-105">
+            <button className="px-4 py-2 md:px-5 md:py-3 text-sm md:text-base text-amber-400 rounded-full border-2 border-amber-400 transition-transform duration-300 hover:-translate-y-1 md:hover:scale-105 hover:font-bold">
                 Download Resume
             </button>
             </a>

@@ -1,17 +1,18 @@
 import {useEffect, useState} from "react";
+import {useScrollAnimation} from "../utils/useScrollAnimation";
 
 const About=()=>{
-    const [isVisible,setIsVisible]=useState(false);
-    useEffect(() => {
-        setIsVisible(true)
-    }, []);
-    return <div className={` transition-opacity duration-500 ${isVisible? 'opacity-100 fade-in ':'opacity-0'} text-white px-6 md:px-32 mb-12`}>
+    // const [isVisible,setIsVisible]=useState(false);
+    const [ref,isVisible]=useScrollAnimation()
+    return <div
+        ref={ref}
+        className={` transition-all duration-1000 ${isVisible? 'opacity-100 translate-y-0 ':'opacity-0 translate-y-10'} min-h-screen flex items-center justify-center text-white px-6 md:px-32 mb-12`}>
         <div className="my-4 bg-black bg-opacity-70 grid grid-cols-1 lg:grid-cols-12  p-8">
             <div className="col-span-5 p-6 relative group">
 
-                <div className="absolute top-6 md:top-3 left-6 md:left-3 w-60 md:w-80 h-4/5 border-4 border-amber-500  bg-amber-500 rounded-xl transition-transform ease-in-out group-hover:-translate-x-2 group-hover:-translate-y-2 "></div>
+                <div className="absolute top-6 md:top-3 left-6 md:left-3  md:w-80 h-4/5    bg-gradient-to-tl from-yellow-500 via-amber-500 to-orange-600 rounded-xl transition-transform ease-in-out md:group-hover:-translate-x-2 md:group-hover:-translate-y-2 "></div>
                 <img src="https://i.ibb.co/0C10yfv/img.png" alt="img"
-                     className="relative w-80  rounded-xl transition-transform ease-in-out group-hover:translate-x-2 group-hover:translate-y-2   "/>
+                     className="relative w-60 md:w-80  rounded-xl transition-transform ease-in-out sm:translate-x-2 md:group-hover:translate-x-2 md:group-hover:translate-y-2   "/>
             </div>
 
             <div className="col-span-6 m-2">

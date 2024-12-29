@@ -93,31 +93,34 @@ const Header = ({ scrollToRef }) => {
 
       
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 m-0 w-screen h-screen bg-black bg-opacity-80  text-white py-4 z-10 md:hidden">
+        <div className="absolute top-full left-0 m-0 w-screen h-screen bg-black bg-opacity-80 backdrop-blur text-white py-4 z-10 md:hidden">
           <ul className="flex flex-col items-center justify-center h-3/4 space-y-4 font-orbitron font-medium text-lg">
             <li
               onClick={() => scrollToSection(scrollToRef.heroRef)}
               className="cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
             >
-              Home
+              <span className={'bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 bg-clip-text text-transparent font-bold'}>01.</span> Home
             </li>
             <li
-              onClick={() => scrollToSection(scrollToRef.aboutRef)}
-              className="cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
+                onClick={() => scrollToSection(scrollToRef.aboutRef)}
+                className="cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
             >
-              About
+              <span
+                  className={'bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 bg-clip-text text-transparent font-bold'}>02.</span> About
             </li>
             <li
-              onClick={() => scrollToSection(scrollToRef.projectsRef)}
-              className="cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
+                onClick={() => scrollToSection(scrollToRef.projectsRef)}
+                className="cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
             >
-              Projects
+              <span
+                  className={'bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 bg-clip-text text-transparent font-bold'}>03.</span> Projects
             </li>
             <li
-              onClick={() => scrollToSection(scrollToRef.contactRef)}
-              className="cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
+                onClick={() => scrollToSection(scrollToRef.contactRef)}
+                className="cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
             >
-              Contact
+              <span
+                  className={'bg-gradient-to-r from-yellow-500 via-amber-500 to-orange-600 bg-clip-text text-transparent font-bold'}>04.</span> Contact
             </li>
           </ul>
         </div>
