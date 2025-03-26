@@ -8,9 +8,65 @@
     <schema id="3" parent="1" name="config"/>
     <schema id="4" parent="1" name="local"/>
     <schema id="5" parent="1" name="playground"/>
-    <schema id="6" parent="1" name="test">
+    <schema id="6" parent="1" name="portfolio">
+      <LastIntrospectionLocalTimestamp>2025-03-26.07:16:59</LastIntrospectionLocalTimestamp>
+    </schema>
+    <schema id="7" parent="1" name="test">
       <Current>1</Current>
     </schema>
-    <schema id="7" parent="1" name="vidly"/>
+    <schema id="8" parent="1" name="vidly"/>
+    <table id="9" parent="6" name="portfolios"/>
+    <column id="10" parent="9" name="_id">
+      <Position>1</Position>
+      <StoredType>ObjectId|12s</StoredType>
+    </column>
+    <column id="11" parent="9" name="__v">
+      <Position>2</Position>
+      <StoredType>Int32|4s</StoredType>
+    </column>
+    <column id="12" parent="9" name="about">
+      <Position>3</Position>
+      <StoredType>Object|4999544s</StoredType>
+    </column>
+    <column id="13" parent="9" name="about.description">
+      <Position>4</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="14" parent="9" name="about.techStack">
+      <Position>5</Position>
+      <StoredType>Array|2003s</StoredType>
+    </column>
+    <column id="15" parent="9" name="name">
+      <Position>6</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="16" parent="9" name="profession">
+      <Position>7</Position>
+      <StoredType>Array|2003s</StoredType>
+    </column>
+    <column id="17" parent="9" name="resumeLink">
+      <Position>8</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="18" parent="9" name="socials">
+      <Position>9</Position>
+      <StoredType>Object|4999544s</StoredType>
+    </column>
+    <column id="19" parent="9" name="socials.github">
+      <Position>10</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="20" parent="9" name="socials.linkedin">
+      <Position>11</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <column id="21" parent="9" name="socials.twitter">
+      <Position>12</Position>
+      <StoredType>String|12s</StoredType>
+    </column>
+    <index id="22" parent="9" name="_id_">
+      <ColNames>_id</ColNames>
+      <Unique>1</Unique>
+    </index>
   </database-model>
 </dataSource>
