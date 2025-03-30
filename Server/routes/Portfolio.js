@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const PortFolio = require('../models/Portfolio');
 const Joi = require('joi');
+const {authMiddleware}=require('../Middleware/authMiddleware');
 
 router.get('/',async (req,res)=>{
     const info=await PortFolio.find()
@@ -20,7 +21,7 @@ router.get('/:id',async (req,res)=>{
 })
 
 
-router.post('/',async (req,res)=>{
+router.post('/',authMiddleware,async (req,res)=>{
     const {error}=validatePortfolio(req.body);
     if(error){
         return res.status(400).send(error.details[0].message);
@@ -43,7 +44,7 @@ router.post('/',async (req,res)=>{
     res.status(201).send(result);
 })
 
-router.put('/:id',async (req,res)=>{
+router.put('/:id',authMiddleware,async (req,res)=>{
     const {error}=validatePortfolio(req.body);
     if(error){
         return res.status(400).send(error.details[0].message);
@@ -69,7 +70,7 @@ router.put('/:id',async (req,res)=>{
     res.status(200).send(portfolio);
 })
 
-router.delete("/:id",async (req,res)=>{
+router.delete("/:id",authMiddleware,async (req,res)=>{
     const portfolio=await PortFolio.findByIdAndDelete(req.params.id)
     if(!portfolio){
         return res.status(404).send('No portfolio Found')

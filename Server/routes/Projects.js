@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Joi = require('joi')
 const Project = require('../models/Project');
+const {authMiddleware}=require('../Middleware/authMiddleware');
+
 
 router.get('/',async (req,res)=>{
     const projects=await Project.find()
@@ -15,7 +17,7 @@ router.get('/:id',async (req,res)=>{
     res.status(200).send(project)
 })
 
-router.post('/',async (req,res)=>{
+router.post('/',authMiddleware,async (req,res)=>{
     const {error}=validateProject(req.body)
     if(error){
         res.status(400).send(error.details[0].message)
@@ -32,7 +34,7 @@ router.post('/',async (req,res)=>{
     res.status(201).send(result)
 })
 
-router.put('/:id',async (req,res)=>{
+router.put('/:id',authMiddleware,async (req,res)=>{
     const {error}=validateProject(req.body)
     if(error){
         res.status(400).send(error.details[0].message)
@@ -52,7 +54,7 @@ router.put('/:id',async (req,res)=>{
 })
 
 
-router.delete('/:id',async (req,res)=>{
+router.delete('/:id',authMiddleware,async (req,res)=>{
     const project=await Project.findByIdAndDelete(req.params.id)
     if(!project){
         return res.status(404).send('Project with id not found.')
