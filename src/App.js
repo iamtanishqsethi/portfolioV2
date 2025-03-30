@@ -1,8 +1,27 @@
 import './App.css';
 import Home from "./Components/Home";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Login from "./Components/DashBoard/Login";
+import DashBoard from "./Components/DashBoard/DashBoard";
 
 function App() {
-  return (
+  const appRouter=createBrowserRouter([
+      {
+          path:'/',
+          element:<Home/>
+      },
+      {
+          path:'/login',
+          element:<Login/>,
+      },
+      {
+          path:'/dashboard',
+          element:<DashBoard/>
+      }
+
+  ])
+
+    return (
     <div className="font-robotoMono relative min-h-screen">
       <div className="fixed inset-0 -z-10 bg-black">
         <img
@@ -11,7 +30,7 @@ function App() {
           className="w-full h-full object-cover opacity-60"
         />
       </div>
-      <Home />
+        <RouterProvider router={appRouter}></RouterProvider>
     </div>
   );
 }
