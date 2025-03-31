@@ -2,6 +2,16 @@ import {useState} from "react";
 
 const Portfolio=()=>{
     const [isEdit, setIsEdit] = useState(false);
+    const [profileImageUrl, setProfileImageUrl] = useState('');
+    const [aboutImageUrl, setAboutImageUrl] = useState('');
+
+    const handleProfileImageChange = (e) => {
+        setProfileImageUrl(e.target.value)
+    };
+
+    const handleAboutImageChange = (e) => {
+        setAboutImageUrl(e.target.value)
+    };
 
     return (
         <div
@@ -15,9 +25,9 @@ const Portfolio=()=>{
                         Portfolio
                     </h1>
                     {!isEdit ?<button
-                        className={'bg-blue-700 rounded py-2.5 px-5 font-bold '}
-                        onClick={() => setIsEdit(true)}
-                    >Edit</button> :
+                            className={'bg-blue-700 rounded py-2.5 px-5 font-bold '}
+                            onClick={() => setIsEdit(true)}
+                        >Edit</button> :
                         <button
                             className={'bg-zinc-800 rounded py-2.5 px-5 font-bold '}
                             onClick={() => setIsEdit(false)}
@@ -26,11 +36,28 @@ const Portfolio=()=>{
                 </div>
 
                 <input type="text" className={'rounded p-3 bg-gray-700/20 mx-2 my-4 w-full focus:outline-none'} placeholder={'Name'}/>
-                <div className={'flex items-center  w-full'}>
+                <div className={'flex items-center w-full'}>
                     <label className={'text-xl mx-4'}>
                         Image
                     </label>
-                    <input type="text" className={'rounded p-3 bg-gray-700/20 mx-2 my-4  focus:outline-none w-full'} placeholder={'Image Link'}/>
+                    <div className={'flex flex-col w-full'}>
+                        <input
+                            type="text"
+                            className={'rounded p-3 bg-gray-700/20 mx-2 my-4 focus:outline-none w-full'}
+                            placeholder={'Image Link'}
+                            value={profileImageUrl}
+                            onChange={handleProfileImageChange}
+                        />
+                        {profileImageUrl && (
+                            <div className={'mx-2 mb-4 h-40 w-40 overflow-hidden rounded'}>
+                                <img
+                                    src={profileImageUrl}
+                                    alt="Profile preview"
+                                    className={'w-full h-full object-cover'}
+                                />
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <h2
                     className={'text-xl mx-4'}
@@ -65,12 +92,29 @@ const Portfolio=()=>{
                 <textarea
                     className={'rounded p-3 bg-gray-700/20 mx-2 my-4  focus:outline-none w-full h-40'}
                     placeholder={'About Description'}>
-                ></textarea>
-                <div className={'flex items-center  w-full'}>
+                </textarea>
+                <div className={'flex items-center w-full'}>
                     <label className={'text-xl mx-4'}>
                         Image
                     </label>
-                    <input type="text" className={'rounded p-3 bg-gray-700/20 mx-2 my-4  focus:outline-none w-full'} placeholder={'Image Link'}/>
+                    <div className={'flex flex-col w-full'}>
+                        <input
+                            type="text"
+                            className={'rounded p-3 bg-gray-700/20 mx-2 my-4 focus:outline-none w-full'}
+                            placeholder={'Image Link'}
+                            value={aboutImageUrl}
+                            onChange={handleAboutImageChange}
+                        />
+                        {aboutImageUrl && (
+                            <div className={'mx-2 mb-4 h-40 w-40 overflow-hidden rounded'}>
+                                <img
+                                    src={aboutImageUrl}
+                                    alt="About preview"
+                                    className={'w-full h-full object-cover'}
+                                />
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div className={'flex items-center  w-full'}>
                     <label className={'text-xl mx-4'}>
