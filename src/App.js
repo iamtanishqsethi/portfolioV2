@@ -3,9 +3,40 @@ import Home from "./Components/Home";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Login from "./Components/DashBoard/Login";
 import DashBoard from "./Components/DashBoard/DashBoard";
+import PrivateRoute from "./Components/DashBoard/PrivateRoute";
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {clearUser, setUser} from "./utils/auth";
 
 function App() {
-  const appRouter=createBrowserRouter([
+    const dispatch = useDispatch();
+    useEffect(()=>{
+
+            const loadUser = async () => {
+                try {
+                    const response = await fetch("http://localhost:3300/user/me", {
+                        method: "GET",
+                        credentials: "include"
+                    })
+                    if(!response.ok){
+                        throw new Error('Not authenticated');
+                    }
+                    const user = await response.json();
+                    if(user){
+                        dispatch(setUser(user));
+                    }
+                    else {
+                        dispatch(clearUser())
+                    }
+                }catch(error){
+                    console.log(error)
+                }
+            }
+            loadUser();
+
+    },[dispatch])
+
+    const appRouter=createBrowserRouter([
       {
           path:'/',
           element:<Home/>
@@ -16,7 +47,9 @@ function App() {
       },
       {
           path:'/dashboard',
-          element:<DashBoard/>
+          element:<PrivateRoute>
+              <DashBoard/>
+          </PrivateRoute>
       }
 
   ])
