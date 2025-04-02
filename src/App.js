@@ -7,9 +7,11 @@ import PrivateRoute from "./Components/DashBoard/PrivateRoute";
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {clearUser, setUser} from "./utils/auth";
+import useFetchPortfolioData from "./utils/useFetchPortfolioData";
 
 function App() {
     const dispatch = useDispatch();
+    useFetchPortfolioData()
     useEffect(()=>{
 
             const loadUser = async () => {
@@ -24,6 +26,7 @@ function App() {
                     const user = await response.json();
                     if(user){
                         dispatch(setUser(user));
+                        console.log(user)
                     }
                     else {
                         dispatch(clearUser())

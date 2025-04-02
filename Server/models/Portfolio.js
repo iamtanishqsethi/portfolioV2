@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const portfolioSchema=new mongoose.Schema({
     name:String,
+    profileImage:String,
     profession:{
         type:[String],
         default:["Software Engineer"]
@@ -14,6 +15,7 @@ const portfolioSchema=new mongoose.Schema({
     about:{
         description:String,
         techStack:[String],
+        aboutImage:String,
     }
 })
 

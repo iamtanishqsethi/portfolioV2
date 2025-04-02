@@ -28,6 +28,7 @@ router.post('/',authMiddleware,async (req,res)=>{
     }
     const portfolio=new PortFolio({
         name: req.body.name,
+        profileImage:req.body.profileImage,
         profession: req.body.profession,
         socials:{
             linkedin:req.body.socials.linkedin,
@@ -38,6 +39,7 @@ router.post('/',authMiddleware,async (req,res)=>{
         about:{
             description:req.body.about.description,
             techStack:req.body.about.techStack,
+            aboutImage:req.body.about.aboutImage
         }
     })
     const result=await portfolio.save();
@@ -51,6 +53,7 @@ router.put('/:id',authMiddleware,async (req,res)=>{
     }
     const portfolio=await PortFolio.findByIdAndUpdate(req.params.id,{
         name: req.body.name,
+        profileImage:req.body.profileImage,
         profession: req.body.profession,
         socials:{
             linkedin:req.body.socials.linkedin,
@@ -61,6 +64,7 @@ router.put('/:id',authMiddleware,async (req,res)=>{
         about:{
             description:req.body.about.description,
             techStack:req.body.about.techStack,
+            aboutImage:req.body.about.aboutImage
         }
     },{new:true})
 
@@ -81,6 +85,7 @@ router.delete("/:id",authMiddleware,async (req,res)=>{
 function validatePortfolio(portfolio){
     const schema = Joi.object({
         name: Joi.string().required(),
+        profileImage:Joi.string().required(),
         profession: Joi.array().items(Joi.string()),
         socials: Joi.object({
             linkedin: Joi.string().uri().required(),
@@ -91,6 +96,7 @@ function validatePortfolio(portfolio){
         about: Joi.object({
             description: Joi.string(),
             techStack: Joi.array().items(Joi.string()),
+            aboutImage:Joi.string(),
         })
     })
     return schema.validate(portfolio)
