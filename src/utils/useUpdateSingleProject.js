@@ -14,7 +14,7 @@ const useUpdateSingleProject=()=>{
                 credentials: 'include',
             });
             if (!response.ok) {
-                throw new Error('Unable to Update Portfolio');
+                throw new Error('Unable to Update Project');
 
             }
             reFetchProjects()
