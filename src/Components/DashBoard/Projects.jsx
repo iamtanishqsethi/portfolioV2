@@ -1,13 +1,44 @@
 import {useState} from "react";
 import ExistingProject from "./ExistingProject";
+import {useSelector} from "react-redux";
+import useHandleNewProject from "../../utils/useHandleNewProject";
 
 const Projects=()=>{
 
     const [isNew,setIsNew]=useState(false)
+    const [titleValue,setTitleValue]=useState('')
+    const [descriptionValue,setDescriptionValue]=useState('')
+    const [githubLinkValue,setGithubLinkValue]=useState('')
+    const [deployedLinkValue,setDeployedLinkValue]=useState('')
+    const [tagValue,setTagValue]=useState('')
     const [imageUrl, setImageUrl] = useState('');
+
     const handleImageChange = (e) => {
         setImageUrl(e.target.value);
     };
+    const addNewProject=useHandleNewProject()
+    const projects=useSelector(store=>store.projects.data);
+
+    const handleAddNew=async ()=>{
+        const newData={
+            title:titleValue,
+            description:descriptionValue,
+            githubLink:githubLinkValue,
+            deployedLink:deployedLinkValue,
+            tags:tagValue,
+            imageLink:imageUrl,
+        }
+        console.log(newData)
+        await addNewProject(newData);
+        setTitleValue('')
+        setDescriptionValue('')
+        setGithubLinkValue('')
+        setDeployedLinkValue('')
+        setTagValue([])
+        setImageUrl('')
+        setIsNew(false)
+    }
+
 
     return (
         <div
@@ -25,7 +56,7 @@ const Projects=()=>{
                         >New</button> :
                         <button
                             className={'bg-zinc-800 rounded py-2.5 px-5 font-bold '}
-                            onClick={() => setIsNew(false)}
+                            onClick={handleAddNew}
                         >Add + </button>}
 
                 </div>
@@ -42,6 +73,7 @@ const Projects=()=>{
                                         src={imageUrl}
                                         alt="Project preview"
                                         className="w-full h-3/4 object-cover object-center"
+
                                     />
                                 ) : (
                                     <span className="text-gray-400">Image Preview</span>
@@ -55,6 +87,7 @@ const Projects=()=>{
                                     placeholder="Image Link"
                                     value={imageUrl}
                                     onChange={handleImageChange}
+
                                 />
                             </div>
                         </div>
@@ -67,6 +100,8 @@ const Projects=()=>{
                                     type="text"
                                     className="rounded p-3 bg-gray-700/20 focus:outline-none w-full"
                                     placeholder="Title"
+                                    value={titleValue}
+                                    onChange={(e) => setTitleValue(e.target.value)}
                                 />
                             </div>
 
@@ -75,6 +110,8 @@ const Projects=()=>{
                                 <textarea
                                     className="rounded p-3 bg-gray-700/20 focus:outline-none w-full h-28"
                                     placeholder="Description"
+                                    value={descriptionValue}
+                                    onChange={(e) => setDescriptionValue(e.target.value)}
                                 />
                             </div>
 
@@ -84,6 +121,8 @@ const Projects=()=>{
                                     type="text"
                                     className="rounded p-3 bg-gray-700/20 focus:outline-none w-full"
                                     placeholder='Tech stack separated by ","'
+                                    value={tagValue}
+                                    onChange={(e) => setTagValue(e.target.value.split(','))}
                                 />
                             </div>
 
@@ -94,6 +133,8 @@ const Projects=()=>{
                                         type="text"
                                         className="rounded p-3 bg-gray-700/20 focus:outline-none w-full"
                                         placeholder="Github"
+                                        value={githubLinkValue}
+                                        onChange={(e) => setGithubLinkValue(e.target.value)}
                                     />
                                 </div>
                                 <div className="w-full">
@@ -102,6 +143,8 @@ const Projects=()=>{
                                         type="text"
                                         className="rounded p-3 bg-gray-700/20 focus:outline-none w-full"
                                         placeholder="Deployed"
+                                        onChange={(e) => setDeployedLinkValue(e.target.value)}
+                                        value={deployedLinkValue}
                                     />
                                 </div>
                             </div>
@@ -111,11 +154,12 @@ const Projects=()=>{
 
                 }
                 <div className={'flex flex-col items-center justify-center space-y-6 my-5'}>
-                    <ExistingProject/>
-                    <div
-                        className={'w-full h-1 bg-gray-700 rounded my-6'}
-                    ></div>
-                    <ExistingProject />
+                    {
+                        projects.length>0 ?
+                            projects.map((project)=>(
+                                <ExistingProject key={project.id} data={project} />
+                            )):<h1>No Projects Found</h1>
+                    }
                 </div>
 
             </div>

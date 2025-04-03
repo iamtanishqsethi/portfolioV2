@@ -74,4 +74,4 @@ function validateProject(project){
     })
     return schema.validate(project)
 }
-module.exports = router
+module.exports = router;

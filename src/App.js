@@ -8,10 +8,12 @@ import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {clearUser, setUser} from "./utils/auth";
 import useFetchPortfolioData from "./utils/useFetchPortfolioData";
+import useFetchProjectsData from "./utils/useFetchProjectsData";
 
 function App() {
     const dispatch = useDispatch();
     useFetchPortfolioData()
+    useFetchProjectsData()
     useEffect(()=>{
 
             const loadUser = async () => {
