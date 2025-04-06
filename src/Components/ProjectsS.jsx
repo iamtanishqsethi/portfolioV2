@@ -6,8 +6,8 @@ const ProjectsS=({data})=>{
             hover:shadow-lg hover:scale-105 transition ease-in-out hover:shadow-amber-500">
             <i className="fas fa-folder text-4xl md:text-6xl m-2 text-amber-500 "></i>
             <h1 className="text-xl md:text-2xl font-bold  font-orbitron text-amber-500  my-2.5 md:my-4">{data.name}</h1>
-            <p className="text-sm text-gray-400">{data.desc}</p>
-            <a href={data.gitHub}
+            <p className="text-sm text-gray-400">{data.description}</p>
+            <a href={data.githubLink}
                className=" text-2xl text-gray-400 p-2 transition ease-in-out hover:text-amber-400 hover:scale-125"><i
                 className="fab fa-github"></i></a>
         </div>
