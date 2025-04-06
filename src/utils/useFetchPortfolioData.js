@@ -8,7 +8,7 @@ const useFetchPortfolioData=()=>{
 
     const fetchPortfolioData=useCallback(async ()=>{
         try{
-            const response = await fetch(`${BASE_URL}/api/portfolio`,{
+            const response = await fetch(`https://portfoliov2-n5np.onrender.com/api/portfolio`,{
                 method:"GET",
                 credentials: "include"
             })
