@@ -1,13 +1,14 @@
 import {useDispatch} from "react-redux";
 import {useCallback, useEffect} from "react";
 import {setData} from "./portfolioSlice";
+import {BASE_URL} from "./constants";
 
 const useFetchPortfolioData=()=>{
     const dispatch = useDispatch();
 
     const fetchPortfolioData=useCallback(async ()=>{
         try{
-            const response = await fetch('http://localhost:3300/api/portfolio',{
+            const response = await fetch(`${BASE_URL}/api/portfolio`,{
                 method:"GET",
                 credentials: "include"
             })

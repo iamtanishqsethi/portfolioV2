@@ -1,11 +1,12 @@
 import useFetchProjectsData from "./useFetchProjectsData";
+import {BASE_URL} from "./constants";
 
 const useDeleteProject=()=>{
     const {reFetchProjects}=useFetchProjectsData()
 
     const deleteProject=async (id)=>{
         try {
-            const response = await fetch(`http://localhost:3300/api/projects/${id}`, {
+            const response = await fetch(`${BASE_URL}/api/projects/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

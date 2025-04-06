@@ -1,11 +1,12 @@
 import useFetchMiniProjectsData from "./useFetchMiniProjectsData";
+import {BASE_URL} from "./constants";
 
 const useHandleNewMiniProject = () => {
     const {reFetchMiniProjects}=useFetchMiniProjectsData()
 
     const addNewMiniProject = async (data)=>{
         try{
-            const response=await fetch('http://localhost:3300/api/miniProjects',{
+            const response=await fetch(`${BASE_URL}/api/miniProjects`,{
                 method:"POST",
                 body:JSON.stringify(data),
                 headers:{"Content-Type":"application/json"},

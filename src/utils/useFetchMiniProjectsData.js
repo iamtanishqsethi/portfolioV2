@@ -1,12 +1,13 @@
 import {useDispatch} from "react-redux";
 import {useCallback, useEffect} from "react";
 import {setData} from "./miniProjectsSlice";
+import {BASE_URL} from "./constants";
 
 const useFetchMiniProjectsData = () => {
     const dispatch = useDispatch()
     const fetchMiniProjects = useCallback(async ()=>{
         try{
-            const response = await fetch('http://localhost:3300/api/miniProjects',{
+            const response = await fetch(`${BASE_URL}/api/miniProjects`,{
                 method:"GET",
                 credentials: "include"
             })

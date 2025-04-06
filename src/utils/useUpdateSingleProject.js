@@ -1,11 +1,12 @@
 import useFetchProjectsData from "./useFetchProjectsData";
+import {BASE_URL} from "./constants";
 
 const useUpdateSingleProject=()=>{
     const {reFetchProjects}=useFetchProjectsData()
 
     const updateProject=async (updatedData,id)=>{
         try{
-            const response = await fetch("http://localhost:3300/api/projects/" + id, {
+            const response = await fetch(`${BASE_URL}/api/projects/` + id, {
                 method: 'PUT',
                 body: JSON.stringify(updatedData),
                 headers: {

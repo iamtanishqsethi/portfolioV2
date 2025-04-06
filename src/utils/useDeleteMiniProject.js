@@ -1,11 +1,12 @@
 import useFetchMiniProjectsData from "./useFetchMiniProjectsData";
+import {BASE_URL} from "./constants";
 
 const useDeleteMiniProject=()=>{
     const {reFetchMiniProjects}=useFetchMiniProjectsData()
 
     const deleteMiniProjects=async (id)=>{
         try{
-            const response=await fetch(`http://localhost:3300/api/miniProjects/${id}`,{
+            const response=await fetch(`${BASE_URL}/api/miniProjects/${id}`,{
                 method:"DELETE",
                 credentials: "include",
                 headers: {

@@ -1,11 +1,12 @@
 import useFetchProjectsData from "./useFetchProjectsData";
+import {BASE_URL} from "./constants";
 
 const useHandleNewProject=()=>{
     const {reFetchProjects}=useFetchProjectsData()
 
     const addNewProject=async (data)=>{
         try{
-            const response=await fetch("http://localhost:3300/api/projects/",{
+            const response=await fetch(`${BASE_URL}/api/projects/`,{
                 method:"POST",
                 body:JSON.stringify(data),
                 headers:{"Content-Type":"application/json"},

@@ -1,9 +1,10 @@
 import {useCallback} from "react";
+import {BASE_URL} from "./constants";
 
 const usePortfolioUpdate = () => {
     const updatePortfolio = useCallback(async (data) => {
         try {
-            const response = await fetch("http://localhost:3300/api/portfolio/67ec2a0ad2a6c359075109e0", {
+            const response = await fetch(`${BASE_URL}/api/portfolio/67ec2a0ad2a6c359075109e0`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

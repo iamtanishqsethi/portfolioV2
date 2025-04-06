@@ -1,11 +1,12 @@
 import useFetchMiniProjectsData from "./useFetchMiniProjectsData";
+import {BASE_URL} from "./constants";
 
 const useUpdateSingleMiniProject=()=>{
     const {reFetchMiniProjects}=useFetchMiniProjectsData()
 
     const updateMiniProject=async (updatedData,id)=>{
         try{
-            const response=await fetch("http://localhost:3300/api/miniProjects/"+id,{
+            const response=await fetch(`${BASE_URL}/api/miniProjects/`+id,{
                 method:"PUT",
                 credentials: "include",
                 body: JSON.stringify(updatedData),

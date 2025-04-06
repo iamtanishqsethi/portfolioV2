@@ -1,0 +1,1 @@
+export const BASE_URL='https://portfoliov2-n5np.onrender.com'
