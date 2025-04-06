@@ -10,8 +10,7 @@ const MiniProjectRouter=require('./routes/MiniProjects');
 const UserRoute=require('./routes/Users');
 
 app.use(cors({
-    origin: process.env.ORIGIN,
-    credentials: true,
+    origin: '*',
 }))
 app.use(express.json())
 app.use(cookieParser());
