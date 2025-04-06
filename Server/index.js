@@ -11,6 +11,7 @@ const UserRoute=require('./routes/Users');
 
 app.use(cors({
     origin: '*',
+    credentials: true,
 }))
 app.use(express.json())
 app.use(cookieParser());
