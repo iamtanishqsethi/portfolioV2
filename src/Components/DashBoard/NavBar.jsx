@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({scrollToRef}) => {
     const navigate = useNavigate();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -47,19 +47,19 @@ const NavBar = () => {
             <div className="hidden md:flex mr-6">
                 <ul className="flex items-center justify-center font-orbitron font-medium text-lg">
                     <li
-                        // onClick={() => scrollToSection(scrollToRef.heroRef)}
+                        onClick={() => scrollToSection(scrollToRef.portfolioRef)}
                         className="mr-5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
                     >
                         Portfolio
                     </li>
                     <li
-                        // onClick={() => scrollToSection(scrollToRef.aboutRef)}
+                        onClick={() => scrollToSection(scrollToRef.projectsRef)}
                         className="mr-5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
                     >
                         Projects
                     </li>
                     <li
-                        // onClick={() => scrollToSection(scrollToRef.projectsRef)}
+                        onClick={() => scrollToSection(scrollToRef.miniProjectsRef)}
                         className="mr-5 cursor-pointer transition ease-in-out hover:scale-110 hover:text-yellow-400"
                     >
                         Mini-Projects

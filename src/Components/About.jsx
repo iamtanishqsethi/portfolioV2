@@ -1,9 +1,7 @@
-import {useEffect, useState} from "react";
 import {useScrollAnimation} from "../utils/useScrollAnimation";
 import {useSelector} from "react-redux";
 
 const About=()=>{
-    // const [isVisible,setIsVisible]=useState(false);
 
     const {about}=useSelector(store=>store.portfolio.data)
     const [ref,isVisible]=useScrollAnimation()

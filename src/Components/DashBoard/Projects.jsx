@@ -28,7 +28,7 @@ const Projects=()=>{
             tags:tagValue,
             imageLink:imageUrl,
         }
-        console.log(newData)
+        // console.log(newData)
         await addNewProject(newData);
         setTitleValue('')
         setDescriptionValue('')

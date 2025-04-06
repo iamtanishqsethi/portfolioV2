@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 import {setUser} from "../../utils/auth";
+import {BASE_URL} from "../../utils/constants";
 
 const Login=()=>{
 
@@ -16,7 +17,7 @@ const Login=()=>{
     const handleSubmit=async ()=>{
         // e.preventDefault();
         try{
-            const response=await fetch("http://localhost:3300/user/login",{
+            const response=await fetch(`${BASE_URL}/user/login`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

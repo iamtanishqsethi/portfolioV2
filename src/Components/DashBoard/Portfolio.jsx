@@ -48,7 +48,7 @@ const Portfolio=()=>{
                 aboutImage: aboutImageUrl,
             }
         };
-        console.log(updatedData);
+        // console.log(updatedData);
         updatePortfolio(updatedData)
         reFetch();
     }
@@ -219,10 +219,7 @@ const Portfolio=()=>{
                         onChange={(e)=>setTechStack(e.target.value.split(','))}
                     />
                 </div>
-
-
             </div>
-
         </div>
     )
 }

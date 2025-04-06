@@ -14,7 +14,7 @@ const useFetchMiniProjectsData = () => {
             if(!response.ok) throw new Error("Failed to fetch data")
             const result=await response.json()
             dispatch(setData(result))
-            console.log(result)
+            // console.log(result)
         }catch (e){
             console.log("Failed to fetch mini projects data: "+ e);
         }

@@ -71,13 +71,13 @@ const Hero = () => {
             <i className="fab fa-github"></i>
             </a>
             <a
-            href={socials.linkedin}
+            href={socials.twitter}
             className="text-2xl p-2 transition-transform duration-300 hover:text-amber-400 hover:scale-125"
             >
             <i className="fab fa-x-twitter"></i>
             </a>
             <a
-            href={socials.twitter}
+            href={socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl p-2 transition-transform duration-300 hover:text-amber-400 hover:scale-125"

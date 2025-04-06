@@ -8,14 +8,14 @@ const useFetchPortfolioData=()=>{
 
     const fetchPortfolioData=useCallback(async ()=>{
         try{
-            const response = await fetch(`https://portfoliov2-n5np.onrender.com/api/portfolio`,{
+            const response = await fetch(`${BASE_URL}/api/portfolio`,{
                 method:"GET",
                 credentials: "include"
             })
             if (!response.ok) throw new Error("Failed to fetch data")
             const result=await response.json()
             dispatch(setData(result[0]))
-            console.log(result[0])
+            // console.log(result[0])
         }catch(e){
             console.log("Failed to fetch portfolio data "+ e);
         }
