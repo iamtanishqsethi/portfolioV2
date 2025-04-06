@@ -4,9 +4,9 @@ const mongoose=require('mongoose')
 const cors=require('cors')
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
-const PortfolioRouter=require('./routes/portfolio');
-const ProjectsRouter=require('./routes/projects');
-const MiniProjectRouter=require('./routes/miniProjects');
+const PortfolioRouter=require('./routes/Portfolio');
+const ProjectsRouter=require('./routes/Projects');
+const MiniProjectRouter=require('./routes/MiniProjects');
 const UserRoute=require('./routes/Users');
 
 app.use(cors({
