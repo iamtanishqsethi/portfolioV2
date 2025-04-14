@@ -10,7 +10,8 @@ const useDeleteMiniProject=()=>{
                 method:"DELETE",
                 credentials: "include",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
                 },
             })
             if(!response.ok){

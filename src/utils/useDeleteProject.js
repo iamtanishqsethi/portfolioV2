@@ -9,7 +9,8 @@ const useDeleteProject=()=>{
             const response = await fetch(`${BASE_URL}/api/projects/${id}`, {
                 method: 'DELETE',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
                 },
                 credentials: 'include'
             })

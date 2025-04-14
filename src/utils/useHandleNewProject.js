@@ -9,7 +9,10 @@ const useHandleNewProject=()=>{
             const response=await fetch(`${BASE_URL}/api/projects/`,{
                 method:"POST",
                 body:JSON.stringify(data),
-                headers:{"Content-Type":"application/json"},
+                headers:{
+                    "Content-Type":"application/json",
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`
+                },
                 credentials: 'include',
             })
             if (!response.ok){
