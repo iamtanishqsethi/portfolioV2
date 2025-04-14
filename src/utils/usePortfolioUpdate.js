@@ -11,7 +11,7 @@ const usePortfolioUpdate = () => {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 },
                 body: JSON.stringify(data),
-                credentials: 'include',
+                // credentials: 'include',
             });
             if (!response.ok) {
                 throw new Error('Unable to Update Portfolio');
