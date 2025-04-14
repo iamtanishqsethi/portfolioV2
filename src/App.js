@@ -21,9 +21,11 @@ function App() {
 
             const loadUser = async () => {
                 try {
-                    const response = await fetch(`${BASE_URL}/user/me`, {
-                        method: "GET",
-                        credentials: "include"
+                    const response = await fetch("https://portfoliov2-n5np.onrender.com/user/me", {
+                        credentials: "include",
+                        headers:{
+                            "Accept":"application/json",
+                        }
                     })
                     if(!response.ok){
                         throw new Error('Not authenticated');

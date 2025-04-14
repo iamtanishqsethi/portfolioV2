@@ -6,7 +6,7 @@ const authMiddleware=(req,res,next)=>{
     }
 
     try{
-        const decoded=jwt.verify(token.replace("Bearer ",""),"portfoliobackend")
+        const decoded=jwt.verify(token.replace("Bearer ",""),process.env.JWT)
         req.user=decoded
         next()
     }
