@@ -1,6 +1,4 @@
 const jwt = require('jsonwebtoken')
-const login = require("../../src/Components/DashBoard/Login");
-
 const authMiddleware = (req, res, next) => {
     console.log('Cookies received ', req.cookies)
     const token = req.cookies.token || (req.header("Authorization") ? req.header("Authorization").replace("Bearer ", "") : null)
