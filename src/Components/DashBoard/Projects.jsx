@@ -157,7 +157,7 @@ const Projects=()=>{
                     {
                         projects.length>0 ?
                             projects.map((project)=>(
-                                <ExistingProject key={project.id} data={project} />
+                                <ExistingProject key={project?._id} data={project} />
                             )):<h1>No Projects Found</h1>
                     }
                 </div>

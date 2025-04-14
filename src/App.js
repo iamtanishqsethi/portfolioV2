@@ -10,6 +10,7 @@ import {clearUser, setUser} from "./utils/auth";
 import useFetchPortfolioData from "./utils/useFetchPortfolioData";
 import useFetchProjectsData from "./utils/useFetchProjectsData";
 import useFetchMiniProjectsData from "./utils/useFetchMiniProjectsData";
+import {BASE_URL} from "./utils/constants";
 
 function App() {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function App() {
 
             const loadUser = async () => {
                 try {
-                    const response = await fetch("http://localhost:3300/user/me", {
+                    const response = await fetch(`${BASE_URL}/user/me`, {
                         method: "GET",
                         credentials: "include"
                     })

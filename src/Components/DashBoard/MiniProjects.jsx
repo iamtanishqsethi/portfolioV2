@@ -101,7 +101,7 @@ const MiniProjects=()=>{
                     {
                         miniProjects.length>0?
                             miniProjects.map((project)=>(
-                                <ExistingMiniProjects key={project.id} data={project} />
+                                <ExistingMiniProjects key={project?._id} data={project} />
                             )):<h1>No Projects Found</h1>
                     }
 
