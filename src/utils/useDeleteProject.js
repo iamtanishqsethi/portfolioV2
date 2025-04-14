@@ -1,5 +1,6 @@
 import useFetchProjectsData from "./useFetchProjectsData";
 import {BASE_URL} from "./constants";
+import {toast} from "react-hot-toast";
 
 const useDeleteProject=()=>{
     const {reFetchProjects}=useFetchProjectsData()
@@ -12,16 +13,18 @@ const useDeleteProject=()=>{
                     'Content-Type': 'application/json',
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 },
-                credentials: 'include'
+
             })
             if(!response.ok){
                 throw new Error('Failed to delete project')
             }
             reFetchProjects();
+            toast.success(`Successfully deleted project `);
             return await response.json();
         }catch (error){
             console.error(error)
             console.log(error)
+            toast.error(`Error while deleting project `);
         }
     }
     return deleteProject;

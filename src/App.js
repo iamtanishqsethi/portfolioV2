@@ -21,8 +21,7 @@ function App() {
 
             const loadUser = async () => {
                 try {
-                    const response = await fetch("https://portfoliov2-n5np.onrender.com/user/me", {
-                        credentials: "include",
+                    const response = await fetch(`${BASE_URL}/user/me`, {
                         headers:{
                             "Accept":"application/json",
                             "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -34,7 +33,6 @@ function App() {
                     const user = await response.json();
                     if(user){
                         dispatch(setUser(user));
-                        console.log(user)
                     }
                     else {
                         dispatch(clearUser())

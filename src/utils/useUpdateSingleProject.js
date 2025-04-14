@@ -1,5 +1,6 @@
 import useFetchProjectsData from "./useFetchProjectsData";
 import {BASE_URL} from "./constants";
+import {toast} from "react-hot-toast";
 
 const useUpdateSingleProject=()=>{
     const {reFetchProjects}=useFetchProjectsData()
@@ -13,17 +14,19 @@ const useUpdateSingleProject=()=>{
                     'Content-Type': 'application/json',
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 },
-                credentials: 'include',
+
             });
             if (!response.ok) {
                 throw new Error('Unable to Update Project');
 
             }
             reFetchProjects()
+            toast.success(`Successfully Updated Project`);
             return await response.json()
         }catch(error){
             console.error(error)
             console.log(error)
+            toast.error(`Error Updating Project: ${error}`);
         }
     }
     return updateProject;
