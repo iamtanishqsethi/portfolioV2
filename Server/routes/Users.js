@@ -28,13 +28,14 @@ router.post('/register',async (req,res)=>{
     const token =jwt.sign({
         id:user._id,
         role:user.role,
-    },'portfoliobackend',{expiresIn:'1h'} )
+    },process.env.JWT_SECRET,{expiresIn:'1h'} )
 
     res.cookie('token',token ,{
         httpOnly: true,
         secure: true,
-        sameSite: 'Strict',
+        sameSite: 'None',
         maxAge: 3600000,
+        domain:'https://portfoliov2-n5np.onrender.com'
     })
 
     return res.status(201).json({message:"User successfully registered"})
@@ -52,7 +53,7 @@ router.post('/login',async (req,res)=>{
     const token =jwt.sign({
         id:user._id,
         role:user.role,
-    },'portfoliobackend',{expiresIn:'1h'} )
+    },process.env.JWT_SECRET,{expiresIn:'1h'} )
     res.cookie('token',token ,{
         httpOnly: true,
         secure: true,
@@ -67,7 +68,7 @@ router.post('/logout',async (req,res)=>{
     res.clearCookie('token',{
         httpOnly:true,
         secure:true,
-        sameSite:'Strict'
+        // sameSite:'Strict'
     })
     res.json({message:"User logged out"})
 })
