@@ -31,6 +31,8 @@ const Login=()=>{
             }
             const user=await response.json();
             if(user){
+                const token=user.token;
+                localStorage.setItem('token',token);
                 dispatch(setUser(user));
                 navigate('/dashboard');
             }

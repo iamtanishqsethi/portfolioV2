@@ -8,13 +8,12 @@ const PortfolioRouter=require('./routes/Portfolio');
 const ProjectsRouter=require('./routes/Projects');
 const MiniProjectRouter=require('./routes/MiniProjects');
 const UserRoute=require('./routes/Users');
-
+app.use(cookieParser());
 app.use(cors({
     origin: ['https://iamtanishqsethiv2.vercel.app','http://localhost:3000'],
     credentials: true,
 }))
 app.use(express.json())
-app.use(cookieParser());
 app.use('/user',UserRoute)
 app.use('/api/portfolio',PortfolioRouter)
 app.use('/api/projects',ProjectsRouter)

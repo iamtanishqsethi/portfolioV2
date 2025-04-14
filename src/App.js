@@ -25,6 +25,7 @@ function App() {
                         credentials: "include",
                         headers:{
                             "Accept":"application/json",
+                            "Authorization": `Bearer ${localStorage.getItem('token')}`
                         }
                     })
                     if(!response.ok){

@@ -38,7 +38,7 @@ router.post('/register',async (req,res)=>{
         domain:'https://portfoliov2-n5np.onrender.com'
     })
 
-    return res.status(201).json({message:"User successfully registered"})
+    return res.status(201).json({message:"User successfully registered", token:token})
 
 })
 
@@ -61,7 +61,7 @@ router.post('/login',async (req,res)=>{
         maxAge: 3600000,
     })
 
-    res.status(200).send({message:"Login successfull"})
+    res.status(200).send({message:"Login successfull",token:token})
 })
 
 router.post('/logout',async (req,res)=>{
